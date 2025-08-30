@@ -150,20 +150,20 @@
     z-index: 100;
   }
   
-  /* Hide the text part of the button on mobile */
-  .add-transaction-btn .btn-text {
+  /* Hide the text part of the main button on mobile */
+  .transaction-header .add-transaction-btn .btn-text {
       display: none;
   }
   
-  /* Display the plus icon on mobile */
-  .add-transaction-btn .plus-icon {
+  /* Display the plus icon for the main button on mobile */
+  .transaction-header .add-transaction-btn .plus-icon {
       display: block;
       font-size: 2.5rem;
       line-height: 1;
   }
   
-  /* This style will apply only on mobile */
-  .add-transaction-btn {
+  /* This style will apply only to the main floating button on mobile */
+  .transaction-header .add-transaction-btn {
       position: fixed;
       bottom: 30px;
       right: 30px;
@@ -176,5 +176,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+  }
+  
+  /* --- New Styles for Modal Button on Mobile --- */
+  
+  /* Target the button specifically in the modal footer */
+  .modal-footer .add-transaction-btn {
+      position: static; /* Override 'fixed' position */
+      width: 100%;
+      height: auto;
+      border-radius: 8px; /* Restore original border-radius */
+      box-shadow: none;
+      padding: 15px; /* Make it taller */
+      font-size: 1.1rem;
+  }
+
+  /* Make sure the text is visible on the modal button */
+  .modal-footer .add-transaction-btn .btn-text {
+      display: inline;
+  }
+  
+  /* Hide the plus icon on the modal button */
+  .modal-footer .add-transaction-btn .plus-icon {
+      display: none;
   }
 }
