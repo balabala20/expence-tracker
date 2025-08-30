@@ -19,6 +19,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/income', incomeRoutes);
 app.use('/api/expense', expenseRoutes);
 
+app.get('/', (req, res) => res.send('Backend is running...'));
 // Database Connection
 // The options object is no longer needed in recent Mongoose versions
 mongoose.connect(process.env.MONGO_URI)
