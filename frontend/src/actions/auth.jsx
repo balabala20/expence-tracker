@@ -37,7 +37,7 @@ export const register = ({ name, email, password, avatar }) => async dispatch =>
   const body = JSON.stringify({ name, email, password, avatar }); // Add avatar
 
   try {
-    const res = await axios.post('/api/auth/register', body, config);
+    const res = await axios.post(`${API_URL}/api/auth/register`, body, config);
     dispatch({ type: REGISTER_SUCCESS, payload: res.data });
     dispatch(loadUser());
   } catch (err) {
