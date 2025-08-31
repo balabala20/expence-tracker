@@ -34,21 +34,20 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route   PUT api/goals/:id
-// @desc    Update a goal (details or progress)
+// @desc    Update a goal's progress
 router.put('/:id', auth, async (req, res) => {
+    const { currentAmount } = req.body;
     try {
         let goal = await Goal.findById(req.params.id);
-        if (!goal) return res.status(404).json({ msg: 'Goal not found' });
-        if (goal.user.toString() !== req.user.id) {
+        if (!goal || goal.user.toString() !== req.user.id) {
             return res.status(401).json({ msg: 'Not authorized' });
         }
+        
+        if (currentAmount !== undefined) {
+            goal.currentAmount = currentAmount;
+        }
 
-        goal = await Goal.findByIdAndUpdate(
-            req.params.id,
-            { $set: req.body },
-            { new: true }
-        );
-
+        await goal.save();
         res.json(goal);
     } catch (err) {
         console.error(err.message);
@@ -61,11 +60,9 @@ router.put('/:id', auth, async (req, res) => {
 router.delete('/:id', auth, async (req, res) => {
     try {
         let goal = await Goal.findById(req.params.id);
-        if (!goal) return res.status(404).json({ msg: 'Goal not found' });
-        if (goal.user.toString() !== req.user.id) {
+        if (!goal || goal.user.toString() !== req.user.id) {
             return res.status(401).json({ msg: 'Not authorized' });
         }
-
         await Goal.findByIdAndDelete(req.params.id);
         res.json({ msg: 'Goal removed' });
     } catch (err) {

@@ -17,3 +17,10 @@ export const EXPENSE_ERROR = 'EXPENSE_ERROR';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
+// Goal Action Types
+export const GET_GOALS = 'GET_GOALS';
+export const ADD_GOAL = 'ADD_GOAL';
+export const DELETE_GOAL = 'DELETE_GOAL';
+export const UPDATE_GOAL_DETAILS = 'UPDATE_GOAL_DETAILS'; // For editing a goal
+export const UPDATE_GOAL_PROGRESS = 'UPDATE_GOAL_PROGRESS'; // For adding savings
+export const GOAL_ERROR = 'GOAL_ERROR';
