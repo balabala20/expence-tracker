@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const incomeRoutes = require('./routes/income');
 const expenseRoutes = require('./routes/expense');
+const goalRoutes = require('./routes/goals')
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/income', incomeRoutes);
 app.use('/api/expense', expenseRoutes);
+app.use('/api/goals', goalRoutes);
 
 app.get('/', (req, res) => res.send('Backend is running...'));
 // Database Connection

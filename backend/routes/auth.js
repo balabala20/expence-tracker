@@ -24,14 +24,17 @@ router.get('/', auth, async (req, res) => {
 
 // Register route (no changes needed)
 router.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, avatar } = req.body; // Add avatar
     try {
         let user = await User.findOne({ email });
         if (user) return res.status(400).json({ msg: 'User already exists' });
-        user = new User({ name, email, password });
+        
+        user = new User({ name, email, password, avatar }); // Add avatar
+        
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(password, salt);
         await user.save();
+        
         const payload = { user: { id: user.id } };
         jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 360000 }, (err, token) => {
             if (err) throw err;

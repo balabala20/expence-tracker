@@ -86,3 +86,39 @@
         padding: 25px;
     }
 }
+
+
+.avatar-picker {
+  margin-bottom: 20px;
+}
+
+.avatar-picker-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.avatar-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.avatar-option {
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avatar-option:hover {
+  transform: scale(1.1);
+}
+
+.avatar-option.selected {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px var(--primary-color);
+}

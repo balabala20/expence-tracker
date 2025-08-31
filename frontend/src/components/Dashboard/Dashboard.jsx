@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getIncomes } from '../../actions/income';
 import { getExpenses } from '../../actions/expense';
 import './Dashboard.css';
+import ThemeToggleButton from '../Layout/ThemeToggleButton';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut, Pie } from 'react-chartjs-2';
@@ -97,8 +98,10 @@ const Dashboard = ({ getIncomes, getExpenses, income, expense, toggleSidebar }) 
 
     return (
         <main className="dashboard-main">
+            <div className="dashboard-content-wrapper">
             <div className="dashboard-header">
                 <h1>Dashboard</h1>
+                <ThemeToggleButton />
                 <button className="menu-btn" onClick={toggleSidebar}>☰</button>
             </div>
             <div className="summary-cards">
@@ -224,6 +227,7 @@ const Dashboard = ({ getIncomes, getExpenses, income, expense, toggleSidebar }) 
                         )}
                     </div>
                 </div>
+            </div>
             </div>
         </main>
     );

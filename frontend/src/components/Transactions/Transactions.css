@@ -86,46 +86,22 @@
 }
 
 .modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
+    background: var(--card-background);
 }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.modal-header h2 {
-    margin: 0;
-}
-
-.modal-close-btn {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-}
-
-.modal-body .form-group {
-    margin-bottom: 20px;
-}
-
+.modal-header h2,
 .modal-body .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
+    color: var(--text-color);
 }
 
 .modal-body .form-group input {
-    width: 100%;
-    padding: 12px;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+}
+
+.modal-body .form-group input:focus {
+    border-color: var(--primary-color);
 }
 
 .modal-footer {

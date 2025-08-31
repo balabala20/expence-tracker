@@ -18,7 +18,9 @@ const Sidebar = ({ auth: { user }, logout, isOpen, toggleSidebar }) => {
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
           <h1 className="sidebar-header">Expense Tracker</h1>
           <div className="sidebar-profile">
-            <div className="sidebar-profile-img">{getInitials(user?.name)}</div>
+            <div className="sidebar-profile-img">
+              {user && user.avatar ? user.avatar : getInitials(user?.name)}
+            </div>
             <h3>{user && user.name}</h3>
           </div>
           <ul className="sidebar-nav">
@@ -35,6 +37,11 @@ const Sidebar = ({ auth: { user }, logout, isOpen, toggleSidebar }) => {
             <li className="sidebar-nav-item">
               <NavLink to="/expense" className="sidebar-nav-link" activeClassName="active" onClick={isOpen ? toggleSidebar : null}>
                 <span className="sidebar-nav-icon">💸</span> Expense
+              </NavLink>
+            </li>
+             <li className="sidebar-nav-item">
+              <NavLink to="/goals" className="sidebar-nav-link" activeClassName="active" onClick={isOpen ? toggleSidebar : null}>
+                <span className="sidebar-nav-icon">🎯</span> Goals
               </NavLink>
             </li>
           </ul>
