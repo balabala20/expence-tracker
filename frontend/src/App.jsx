@@ -9,6 +9,7 @@ import PrivateRoute from './components/Routing/PrivateRoute';
 import Alert from './components/Layout/Alert';
 import Sidebar from './components/Layout/Sidebar';
 import Goals from './components/Goals/Goals';
+import RecentTransactions from './components/Transactions/RecentTransactions'; // Import the new component
 
 // Redux
 import { Provider, connect } from 'react-redux';
@@ -45,7 +46,8 @@ const AppContent = ({ auth: { isAuthenticated, loading } }) => {
                 <PrivateRoute exact path="/" component={(props) => <Dashboard {...props} toggleSidebar={toggleSidebar} />} />
                 <PrivateRoute exact path="/income" component={(props) => <Income {...props} toggleSidebar={toggleSidebar} />} />
                 <PrivateRoute exact path="/expense" component={(props) => <Expense {...props} toggleSidebar={toggleSidebar} />} />
-                 <PrivateRoute exact path="/goals" component={(props) => <Goals {...props} toggleSidebar={toggleSidebar} />} />
+                <PrivateRoute exact path="/goals" component={(props) => <Goals {...props} toggleSidebar={toggleSidebar} />} />
+                <PrivateRoute exact path="/transactions" component={(props) => <RecentTransactions {...props} toggleSidebar={toggleSidebar} />} />
             </Switch>
         </Router>
     );
